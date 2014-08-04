@@ -1,5 +1,13 @@
-body {
+* {
     margin: 0;
+    padding: 0;
+    border: 0;
+}
+html,
+body {
+    font-family: 'Segoe UI Light', 'Segoe UI Web Light', 'Segoe UI Web Regular', 'Segoe UI', 'Segoe UI Symbol', HelveticaNeue-Light, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 20px;
+    -webkit-font-smoothing: antialiased;
 }
 .test {
     background-image: url(../images/layout-grid.jpg);
@@ -7,18 +15,11 @@ body {
     position: absolute;
 }
 #metro {
-    font-family: 'Segoe UI Light', 'Segoe UI Web Light', 'Segoe UI Web Regular', 'Segoe UI', 'Segoe UI Symbol', HelveticaNeue-Light, 'Helvetica Neue', Arial, sans-serif;
-    font-size: 20px;
-    -webkit-font-smoothing: antialiased;
     padding: 7em 6em;
-    position: relative;
-    width: inherit;
-    height: inherit;
-    display: table;
+    white-space: nowrap;
 }
 #metro > header {
     position: absolute;
-    position: sticky;
     height: 7em;
     top: 0;
 }
@@ -32,8 +33,6 @@ body {
 #metro > section ul,
 #metro > section li {
     list-style: none;
-    margin: 0;
-    padding: 0;
 }
 /**
  * Columnas
@@ -42,27 +41,14 @@ body {
 /*#metro > section ul {}
 #metro > section li {} */
 
-#metro > section > ul {
-    display: table;
-    border-collapse: collapse;
-}
-#metro > section > ul > li {
-    display: table-cell;
-}
-#metro > section li.col4 {
-    min-width: calc(4em - 0.5em);
-    max-width: calc(4em - 0.5em);
-    width: calc(4em - 0.5em);
-}
-#metro > section li.col8 {
-    min-width: calc(8em - 0.5em);
-    max-width: calc(8em - 0.5em);
-    width: calc(8em - 0.5em);
-}
-#metro > section li.col16 {
-    min-width: calc(16em - 0.5em);
-    max-width: calc(16em - 0.5em);
-    width: calc(16em - 0.5em);
+#metro > section ul {} #metro > section > ul > li {
+    display: inline-block;
+    /*IE*/
+    *zoom: 1;
+    white-space: normal;
+    vertical-align: top;
+    margin: 0;
+    padding: 0;
 }
 /**
  * Filas
@@ -70,49 +56,62 @@ body {
 
 /*#metro > section > ul > li > ul {}*/
 
-#metro > section li {
-    display: table;
-    margin-bottom: 0.5em;
-    width: 100%;
-    vertical-align: top;
-    padding-right: 0.5em;
-}
-#metro > section li.row4 {
-    background: red;
-    min-height: calc(4em - 0.5em);
-    max-height: calc(4em - 0.5em);
-    height: calc(4em - 0.5em);
-}
-#metro > section li.row6 {
-    background: green;
-    min-height: calc(6em - 0.5em);
-    max-height: calc(6em - 0.5em);
-    height: calc(6em - 0.5em);
-}
-#metro > section li.row8 {
-    background: yellow;
-    min-height: calc(8em - 0.5em);
-    max-height: calc(8em - 0.5em);
-    height: calc(8em - 0.5em);
-}
-#metro > section li.row11 {
-    background: blue;
-    min-height: calc(11em - 0.5em);
-    max-height: calc(11em - 0.5em);
-    height: calc(11em - 0.5em);
-}
-#metro > section li.row16 {
-    background: orange;
-    min-height: calc(16em - 0.5em);
-    max-height: calc(16em - 0.5em);
-    height: calc(16em - 0.5em);
+#metro > section li li {
+    margin: 0 0.5em 0.5em 0;
+    padding: 0;
+    width: initial;
 }
 /**
  * Celdas
  */
 
-#metro > section li > div.tile {
+#metro .tile {
     display: table-cell;
     vertical-align: middle;
     text-align: center;
+    background: lightgrey;
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 0;
+    margin-top: 0;
+}
+#metro .width4 {
+    min-width: calc(4em - 0.5em);
+    max-width: calc(4em - 0.5em);
+    width: calc(4em - 0.5em);
+}
+#metro .width8 {
+    min-width: calc(8em - 0.5em);
+    max-width: calc(8em - 0.5em);
+    width: calc(8em - 0.5em);
+}
+#metro .width16 {
+    min-width: calc(16em - 0.5em);
+    max-width: calc(16em - 0.5em);
+    width: calc(16em - 0.5em);
+}
+#metro .height4 {
+    min-height: calc(4em - 0.5em);
+    max-height: calc(4em - 0.5em);
+    height: calc(4em - 0.5em);
+}
+#metro .height6 {
+    min-height: calc(6em - 0.5em);
+    max-height: calc(6em - 0.5em);
+    height: calc(6em - 0.5em);
+}
+#metro .height8 {
+    min-height: calc(8em - 0.5em);
+    max-height: calc(8em - 0.5em);
+    height: calc(8em - 0.5em);
+}
+#metro .height11 {
+    min-height: calc(11em - 0.5em);
+    max-height: calc(11em - 0.5em);
+    height: calc(11em - 0.5em);
+}
+#metro .height16 {
+    min-height: calc(16em - 0.5em);
+    max-height: calc(16em - 0.5em);
+    height: calc(16em - 0.5em);
 }
