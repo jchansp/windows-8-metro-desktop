@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+}
+.test {
+    background-image: url(../images/layout-grid.jpg);
+    background-repeat: repeat;
+    position: absolute;
+}
+#metro {
+    font-family: 'Segoe UI Light', 'Segoe UI Web Light', 'Segoe UI Web Regular', 'Segoe UI', 'Segoe UI Symbol', HelveticaNeue-Light, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 20px;
+    -webkit-font-smoothing: antialiased;
+    padding: 7em 6em;
+    position: relative;
+    width: inherit;
+    height: inherit;
+    display: table;
+}
+#metro > header {
+    position: absolute;
+    position: sticky;
+    height: 7em;
+    top: 0;
+}
+#metro > header h1 {
+    margin: 0.7em -0.07em;
+    font-size: 2.8em;
+    font-weight: 500;
+}
+/*#metro > section {}*/
+
+#metro > section ul,
+#metro > section li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+/**
+ * Columnas
+ */
+
+/*#metro > section ul {}
+#metro > section li {} */
+
+#metro > section > ul {
+    display: table;
+    border-collapse: collapse;
+}
+#metro > section > ul > li {
+    display: table-cell;
+}
+#metro > section li.col4 {
+    min-width: calc(4em - 0.5em);
+    max-width: calc(4em - 0.5em);
+    width: calc(4em - 0.5em);
+}
+#metro > section li.col8 {
+    min-width: calc(8em - 0.5em);
+    max-width: calc(8em - 0.5em);
+    width: calc(8em - 0.5em);
+}
+#metro > section li.col16 {
+    min-width: calc(16em - 0.5em);
+    max-width: calc(16em - 0.5em);
+    width: calc(16em - 0.5em);
+}
+/**
+ * Filas
+ */
+
+/*#metro > section > ul > li > ul {}*/
+
+#metro > section li {
+    display: table;
+    margin-bottom: 0.5em;
+    width: 100%;
+    vertical-align: top;
+    padding-right: 0.5em;
+}
+#metro > section li.row4 {
+    background: red;
+    min-height: calc(4em - 0.5em);
+    max-height: calc(4em - 0.5em);
+    height: calc(4em - 0.5em);
+}
+#metro > section li.row6 {
+    background: green;
+    min-height: calc(6em - 0.5em);
+    max-height: calc(6em - 0.5em);
+    height: calc(6em - 0.5em);
+}
+#metro > section li.row8 {
+    background: yellow;
+    min-height: calc(8em - 0.5em);
+    max-height: calc(8em - 0.5em);
+    height: calc(8em - 0.5em);
+}
+#metro > section li.row11 {
+    background: blue;
+    min-height: calc(11em - 0.5em);
+    max-height: calc(11em - 0.5em);
+    height: calc(11em - 0.5em);
+}
+#metro > section li.row16 {
+    background: orange;
+    min-height: calc(16em - 0.5em);
+    max-height: calc(16em - 0.5em);
+    height: calc(16em - 0.5em);
+}
+/**
+ * Celdas
+ */
+
+#metro > section li > div.tile {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
