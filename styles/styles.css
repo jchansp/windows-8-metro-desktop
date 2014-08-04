@@ -9,6 +9,12 @@ body {
     font-size: 20px;
     -webkit-font-smoothing: antialiased;
 }
+ul {
+    /*font-size: 0;*/
+}
+li {
+    /*font-size: 20px;*/
+}
 .test {
     background-image: url(../images/layout-grid.jpg);
     background-repeat: repeat;
@@ -16,7 +22,7 @@ body {
 }
 #metro {
     padding: 7em 6em;
-    white-space: nowrap;
+    /*white-space: nowrap;*/
 }
 #metro > header {
     position: absolute;
@@ -41,14 +47,46 @@ body {
 /*#metro > section ul {}
 #metro > section li {} */
 
-#metro > section ul {} #metro > section > ul > li {
-    display: inline-block;
-    /*IE*/
-    *zoom: 1;
-    white-space: normal;
+#metro > section {
+    display: table;
+}
+#metro > section ul {
+    display: table-cell;
     vertical-align: top;
-    margin: 0;
-    padding: 0;
+    border-collapse: collapse;
+    padding-right: 0.5em;
+}
+#metro > section li {
+    display: table;
+    float: left;
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
+}
+#metro > section ul.width16 li.width8 + li.width8,
+#metro > section ul.width16 li.width8 + li.width8 + li.width8 + li.width8 {
+    margin-right: 0;
+}
+#metro > section ul.width16 li.width8 + li.width8 + li.width8,
+#metro > section ul.width16 li.width8 + li.width8 + li.width8 + li.width8 + li.width8 {
+    margin-right: 0.5em;
+}
+#metro > section ul.width8 li.width4 + li.width4,
+#metro > section ul.width8 li.width4 + li.width4 + li.width4 + li.width4 {
+    margin-right: 0;
+}
+#metro > section ul.width8 li.width4 + li.width4 + li.width4,
+#metro > section ul.width8 li.width4 + li.width4 + li.width4 + li.width4 + li.width4 {
+    margin-right: 0.5em;
+}
+#metro > section ul.width16 li.width4 + li.width4 + li.width4 + li.width4,
+#metro > section ul.width16 li.width4 + li.width4 + li.width4 + li.width4 + li.width4 + li.width4 + li.width4 + li.width4,
+#metro > section ul.width16 li.width4 + li.width4 + li.width4 + li.width4 + li.width4 + li.width4 + li.width4 + li.width4 + li.width4 + li.width4 + li.width4 + li.width4 {
+    margin-right: 0;
+}
+#metro > section ul.width16 li.width4 + li.width4 + li.width4 + li.width4 + li.width4,
+#metro > section ul.width16 li.width4 + li.width4 + li.width4 + li.width4 + li.width4 + li.width4 + li.width4 + li.width4 + li.width4,
+#metro > section ul.width16 li.width4 + li.width4 + li.width4 + li.width4 + li.width4 + li.width4 + li.width4 + li.width4 + li.width4 + li.width4 + li.width4 + li.width4 + li.width4 {
+    margin-right: 0.5em;
 }
 /**
  * Filas
@@ -56,11 +94,12 @@ body {
 
 /*#metro > section > ul > li > ul {}*/
 
-#metro > section li li {
+/*#metro > section li li {
     margin: 0 0.5em 0.5em 0;
     padding: 0;
     width: initial;
-}
+}*/
+
 /**
  * Celdas
  */
