@@ -2,149 +2,223 @@
 <html>
 
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Metro</title>
+    <script type="text/javascript" src="scripts/mootools-core-1.5.0-full-nocompat-yc.js"></script>
+    <script type="text/javascript" src="scripts/mootools-more-1.5.0.js"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
     <link rel="stylesheet" href="styles/fonts.css" />
     <link rel="stylesheet" href="styles/styles.css" />
 </head>
 
 <body>
-    <div class="page test">
-        <div id="metro">
-            <header>
-                <h1>Start</h1>
-            </header>
-            <section>
-                <ul class="width16">
-                    <li class="width16 height11">
-                        <div class="tile">16 x 11</div>
-                    </li>
-                    <li class="width16 height11">
-                        <div class="tile">16 x 11</div>
-                    </li>
-                    <li class="width8 height6">
-                        <div class="tile">8 x 6</div>
-                    </li>
-                    <li class="width8 height6">
-                        <div class="tile">8 x 6</div>
-                    </li>
-                </ul>
-                <ul class="width4">
-                    <li class="width4 height4">
-                        <div class="tile">4 x 4</div>
-                    </li>
-                    <li class="width4 height4">
-                        <div class="tile">4 x 4</div>
-                    </li>
-                    <li class="width4 height4">
-                        <div class="tile">4 x 4</div>
-                    </li>
-                    <li class="width4 height4">
-                        <div class="tile">4 x 4</div>
-                    </li>
-                    <li class="width4 height4">
-                        <div class="tile">4 x 4</div>
-                    </li>
-                    <li class="width4 height4">
-                        <div class="tile">4 x 4</div>
-                    </li>
-                    <li class="width4 height4">
-                        <div class="tile">4 x 4</div>
-                    </li>
-                </ul>
-                <ul class="width8">
-                    <li class="width8 height8">
-                        <div class="tile">8 x 8</div>
-                    </li>
-                    <li class="width8 height8">
-                        <div class="tile">8 x 8</div>
-                    </li>
-                    <li class="width8 height8">
-                        <div class="tile">8 x 8</div>
-                    </li>
-                    <li class="width4 height4">
-                        <div class="tile">4 x 4</div>
-                    </li>
-                    <li class="width4 height4">
-                        <div class="tile">4 x 4</div>
-                    </li>
-                </ul>
-                <ul class="width16">
-                    <li class="width16 height16">
-                        <div class="tile">16 x 16</div>
-                    </li>
-                    <li class="width8 height6">
-                        <div class="tile">8 x 6</div>
-                    </li>
-                    <li class="width8 height6">
-                        <div class="tile">8 x 6</div>
-                    </li>
-                    <li class="width8 height6">
-                        <div class="tile">8 x 6</div>
-                    </li>
-                    <li class="width8 height6">
-                        <div class="tile">8 x 6</div>
-                    </li>
-                </ul>
-                <ul class="width8">
-                    <li class="width8 height8">
-                        <div class="tile">8 x 8</div>
-                    </li>
-                    <li class="width8 height8">
-                        <div class="tile">8 x 8</div>
-                    </li>
-                    <li class="width8 height8">
-                        <div class="tile">8 x 8</div>
-                    </li>
-                    <li class="width4 height4">
-                        <div class="tile">4 x 4</div>
-                    </li>
-                    <li class="width4 height4">
-                        <div class="tile">4 x 4</div>
-                    </li>
-                </ul>
-                <ul class="width16">
-                    <li class="width16 height16">
-                        <div class="tile">16 x 16</div>
-                    </li>
-                    <li class="width4 height4">
-                        <div class="tile">4 x 4</div>
-                    </li>
-                    <li class="width4 height4">
-                        <div class="tile">4 x 4</div>
-                    </li>
-                    <li class="width4 height4">
-                        <div class="tile">4 x 4</div>
-                    </li>
-                    <li class="width4 height4">
-                        <div class="tile">4 x 4</div>
-                    </li>
-                    <li class="width4 height4">
-                        <div class="tile">4 x 4</div>
-                    </li>
-                    <li class="width4 height4">
-                        <div class="tile">4 x 4</div>
-                    </li>
-                    <li class="width4 height4">
-                        <div class="tile">4 x 4</div>
-                    </li>
-                    <li class="width4 height4">
-                        <div class="tile">4 x 4</div>
-                    </li>
-                    <li class="width4 height4">
-                        <div class="tile">4 x 4</div>
-                    </li>
-                    <li class="width4 height4">
-                        <div class="tile">4 x 4</div>
-                    </li>
-                    <li class="width4 height4">
-                        <div class="tile">4 x 4</div>
-                    </li>
-                    <li class="width4 height4">
-                        <div class="tile">4 x 4</div>
-                    </li>
-                </ul>
-            </section>
-            <footer>
-            </footer>
+    <div class="desktop">
+        <div id="page-one" class="page one slidePageLeft">
+            <div class="metro">
+                <header>
+                    <h1>Start</h1>
+                </header>
+                <section>
+                    <ul class="width16">
+                        <li class="width16 height11">
+                            <a href="#page-two" class="tile">16 x 11</a>
+                        </li>
+                        <li class="width16 height11">
+                            <div class="tile">16 x 11</div>
+                        </li>
+                        <li class="width8 height6">
+                            <div class="tile">8 x 6</div>
+                        </li>
+                        <li class="width8 height6">
+                            <div class="tile">8 x 6</div>
+                        </li>
+                    </ul>
+                    <ul class="width4">
+                        <li class="width4 height4">
+                            <div class="tile">4 x 4</div>
+                        </li>
+                        <li class="width4 height4">
+                            <div class="tile">4 x 4</div>
+                        </li>
+                        <li class="width4 height4">
+                            <div class="tile">4 x 4</div>
+                        </li>
+                        <li class="width4 height4">
+                            <div class="tile">4 x 4</div>
+                        </li>
+                        <li class="width4 height4">
+                            <div class="tile">4 x 4</div>
+                        </li>
+                        <li class="width4 height4">
+                            <div class="tile">4 x 4</div>
+                        </li>
+                        <li class="width4 height4">
+                            <div class="tile">4 x 4</div>
+                        </li>
+                    </ul>
+                    <ul class="width8">
+                        <li class="width8 height8">
+                            <div class="tile">8 x 8</div>
+                        </li>
+                        <li class="width8 height8">
+                            <div class="tile">8 x 8</div>
+                        </li>
+                        <li class="width8 height8">
+                            <div class="tile">8 x 8</div>
+                        </li>
+                        <li class="width4 height4">
+                            <div class="tile">4 x 4</div>
+                        </li>
+                        <li class="width4 height4">
+                            <div class="tile">4 x 4</div>
+                        </li>
+                    </ul>
+                    <ul class="width16">
+                        <li class="width16 height16">
+                            <div class="tile">16 x 16</div>
+                        </li>
+                        <li class="width8 height6">
+                            <div class="tile">8 x 6</div>
+                        </li>
+                        <li class="width8 height6">
+                            <div class="tile">8 x 6</div>
+                        </li>
+                        <li class="width8 height6">
+                            <div class="tile">8 x 6</div>
+                        </li>
+                        <li class="width8 height6">
+                            <div class="tile">8 x 6</div>
+                        </li>
+                    </ul>
+                    <ul class="width8">
+                        <li class="width8 height8">
+                            <div class="tile">8 x 8</div>
+                        </li>
+                        <li class="width8 height8">
+                            <div class="tile">8 x 8</div>
+                        </li>
+                        <li class="width8 height8">
+                            <div class="tile">8 x 8</div>
+                        </li>
+                        <li class="width4 height4">
+                            <div class="tile">4 x 4</div>
+                        </li>
+                        <li class="width4 height4">
+                            <div class="tile">4 x 4</div>
+                        </li>
+                    </ul>
+                    <ul class="width16">
+                        <li class="width16 height16">
+                            <div class="tile">16 x 16</div>
+                        </li>
+                        <li class="width4 height4">
+                            <div class="tile">4 x 4</div>
+                        </li>
+                        <li class="width4 height4">
+                            <div class="tile">4 x 4</div>
+                        </li>
+                        <li class="width4 height4">
+                            <div class="tile">4 x 4</div>
+                        </li>
+                        <li class="width4 height4">
+                            <div class="tile">4 x 4</div>
+                        </li>
+                        <li class="width4 height4">
+                            <div class="tile">4 x 4</div>
+                        </li>
+                        <li class="width4 height4">
+                            <div class="tile">4 x 4</div>
+                        </li>
+                        <li class="width4 height4">
+                            <div class="tile">4 x 4</div>
+                        </li>
+                        <li class="width4 height4">
+                            <div class="tile">4 x 4</div>
+                        </li>
+                        <li class="width4 height4">
+                            <div class="tile">4 x 4</div>
+                        </li>
+                        <li class="width4 height4">
+                            <div class="tile">4 x 4</div>
+                        </li>
+                        <li class="width4 height4">
+                            <div class="tile">4 x 4</div>
+                        </li>
+                        <li class="width4 height4">
+                            <div class="tile">4 x 4</div>
+                        </li>
+                    </ul>
+                </section>
+                <footer>
+                </footer>
+            </div>
+        </div>
+        <div id="page-two" class="page two">
+            <div class="metro">
+                <header>
+                    <h1>Start</h1>
+                </header>
+                <section>
+                    <ul class="width27">
+                        <li class="width9 height9">
+                            <a href="#page-one" class="tile">9 x 9</a>
+                        </li>
+                        <li class="width9 height9">
+                            <div class="tile">9 x 9</div>
+                        </li>
+                        <li class="width9 height9">
+                            <div class="tile">9 x 9</div>
+                        </li>
+                        <li class="width27 height9">
+                            <div class="tile">27 x 9</div>
+                        </li>
+                        <li class="width27 height9">
+                            <div class="tile">27 x 9</div>
+                        </li>
+                    </ul>
+                    <ul class="width27">
+                        <li class="width27 height9">
+                            <div class="tile">27 x 9</div>
+                        </li>
+                        <li class="width9 height9">
+                            <div class="tile">9 x 9</div>
+                        </li>
+                        <li class="width9 height9">
+                            <div class="tile">9 x 9</div>
+                        </li>
+                        <li class="width9 height9">
+                            <div class="tile">9 x 9</div>
+                        </li>
+                        <li class="width9 height9">
+                            <div class="tile">9 x 9</div>
+                        </li>
+                        <li class="width9 height9">
+                            <div class="tile">9 x 9</div>
+                        </li>
+                        <li class="width9 height9">
+                            <div class="tile">9 x 9</div>
+                        </li>
+                    </ul>
+                    <ul class="width9">
+                        <li class="width9 height9">
+                            <div class="tile">9 x 9</div>
+                        </li>
+                        <li class="width9 height9">
+                            <div class="tile">9 x 9</div>
+                        </li>
+                        <li class="width9 height9">
+                            <div class="tile">9 x 9</div>
+                        </li>
+                    </ul>
+                </section>
+                <footer>
+                </footer>
+            </div>
         </div>
     </div>
 </body>
