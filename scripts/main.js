@@ -1,85 +1,122 @@
-window.addEvent('domready', function () {
-    this.Metro = new Hash();
-    this.Metro.UI = new Hash();
-    this.Metro.UI.Element = new Class({
-        Implements: Options,
-        element: null,
-        options: {},
-        initialize: function (element, options) {
-            if (!element) throw new ReferenceError('element has to have a value');
-            this.element = element;
-            this.setOptions(options);
-        }
+(function () {
+    'use strict';
+    window.addEvent('domready', function () {
+        /**
+         * Namespaces
+         */
+        this.Metro = {};
+        this.Metro.UI = {};
+        /**
+         * Enumerations
+         */
+        this.Metro.UI.Transitions = {
+            SlideTop: {
+                In: 'slide-from-top',
+                Out: 'slide-to-top'
+            },
+            SlideLeft: {
+                In: 'slide-from-left',
+                Out: 'slide-to-left'
+            }
+        };
+        /**
+         * Interfaces
+         */
+        this.Metro.UI.IHasLinks = new Class({
+            initializeLinks: function () {
+                this.element.getElements('a').addEvent('click', function (event) {
+                    var a = event.target;
+                    var pageId = new URI(a.href).get('fragment');
+                    var transitionIn = a.get('data-transition-in');
+                    var transitionOut = a.get('data-transition-out');
+                    (!pageId) ?
+                        this.close() :
+                        Metro.UI.Pages.get(pageId).setOptions({
+                            transitionIn: transitionIn,
+                            transitionOut: transitionOut
+                        }).open();
+                }.bind(this));
+            }
+        });
+        /**
+         * Classes
+         */
+        this.Metro.UI.Element = new Class({
+            Implements: [Options, Events],
+            element: null,
+            options: {},
+            initialize: function (element, options) {
+                if (!element) throw new ReferenceError('element has to have a value');
+                this.element = element;
+                this.setOptions(options);
+            }
+        });
+        this.Metro.UI.Desktop = new Class({
+            Extends: Metro.UI.Element,
+            Implements: Metro.UI.IHasLinks,
+            activePageId: null,
+            options: {
+                pageClassName: 'page'
+            },
+            initialize: function (element, options) {
+                this.parent(element, options);
+                this.initializeLinks();
+                this.initializePages();
+                this.activePageId = new URI(window.location.href).get('fragment');
+                this.todo.periodical(100);
+            },
+            initializePages: function () {
+                document.getElements('.' + this.options.pageClassName)
+                    .each(function (pageElement) {
+                        Metro.UI.Pages.include(
+                            pageElement.get('id'),
+                            new Metro.UI.Page(pageElement));
+                    });
+            },
+            todo: function () {
+                if (new URI(window.location.href).get('fragment') != this.activePageId) {
+                    this.activePageId = new URI(window.location.href).get('fragment');
+                    Metro.UI.Pages.each(function (page) {
+                        if (page.isOpen)
+                            page.close();
+                    });
+                    if (!!this.activePageId && this.activePageId !== 'desktop')
+                        Metro.UI.Pages.get(this.activePageId).open();
+                }
+            }
+        });
+        this.Metro.UI.Page = new Class({
+            Extends: Metro.UI.Element,
+            Implements: Metro.UI.IHasLinks,
+            isOpen: false,
+            options: {
+                transitionIn: Metro.UI.Transitions.SlideLeft.In,
+                transitionOut: Metro.UI.Transitions.SlideLeft.Out
+            },
+            initialize: function (element, options) {
+                this.parent(element, options);
+                this.initializeLinks();
+            },
+            open: function () {
+                this.element
+                    .removeClass(this.options.transitionOut)
+                    .addClass(this.options.transitionIn);
+                this.isOpen = true;
+                this.fireEvent('open');
+            },
+            close: function () {
+                this.element
+                    .removeClass(this.options.transitionIn)
+                    .addClass(this.options.transitionOut);
+                this.isOpen = false;
+                this.fireEvent('close');
+            }
+        });
+        /**
+         * Collections
+         */
+        this.Metro.UI.Pages = new Hash();
+
+        window.metro = new Metro.UI.Desktop(document.id('desktop'));
     });
-    this.Metro.UI.Desktop = new Class({
-        Extends: Metro.UI.Element,
-        pages: [],
-        options: {
-            startPage: 'page-one',
-            pageClassName: 'page'
-        },
-        initialize: function (element, options) {
-            this.parent(element, options);
-            this.element.getElements('.' + this.options.pageClassName).each(function (page) {
-                this.pages.push(new Metro.UI.Desktop.Page(page));
-            }.bind(this));
-            /*this.hidePages();
-            this.showPage(new URI(location.href).get('fragment') || this.options.startPage);*/
-            this.element.getElements('a').addEvent('click', function (event) {
-                //event.stop();
-                var destinationPage = new URI(event.target.href).get('fragment');
-                if (!destinationPage)
-                    return;
-                /*this.hidePages();
-                this.showPage(destinationPage);*/
-            }.bind(this));
-        },
-        hidePages: function () {
-            this.pages.each(function (page) {
-                console.log(page.element.get('id'));
-                if (page.element.get('id') != this.options.startPage) {
-                    page.hide();
-                };
-            }.bind(this));
-        },
-        showPage: function (pageId) {
-            this.pages.each(function (page) {
-                if (page.element.get('id') == pageId) {
-                    page.slideIn();
-                };
-            });
-        }
-    });
-    this.Metro.UI.Desktop.Page = new Class({
-        Extends: Metro.UI.Element,
-        fxSlide: null,
-        options: {
-            mode: 'horizontal'
-        },
-        initialize: function (element, options) {
-            this.parent(element, options);
-            this.fxSlide = new Fx.Slide(this.element, {
-                mode: this.options.mode,
-                hideOverflow: false
-            });
-        },
-        show: function () {
-            /*this.fxSlide.show();*/
-            /*this.element.show();*/
-        },
-        hide: function () {
-            this.fxSlide.hide();
-            /*this.element.hide();*/
-        },
-        slideIn: function () {
-            this.fxSlide.slideIn();
-            /*this.element.show();*/
-        },
-        slideOut: function () {
-            this.fxSlide.slideOut().chain(function () {
-                /*this.element.hide();*/
-            });
-        }
-    });
-    window.metro = new Metro.UI.Desktop(document.getElement('.desktop'));
-});
+})();

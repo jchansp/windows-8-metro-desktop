@@ -1,33 +1,36 @@
-* {
-    margin: 0;
-    padding: 0;
-    border: 0;
-}
+/**
+ * Fonts
+ */
+
 html,
 body {
     font-family: 'Segoe UI Light', 'Segoe UI Web Light', 'Segoe UI Web Regular', 'Segoe UI', 'Segoe UI Symbol', HelveticaNeue-Light, 'Helvetica Neue', Arial, sans-serif;
     font-size: 20px;
     -webkit-font-smoothing: antialiased;
-}
-.desktop {
-    /*display: table;*/
-}
-.desktop > div {
-    margin: 0;
-    vertical-align: top;
-    /*display: table-cell;*/
     position: absolute;
-    top: 0;
-    left: 0;
 }
-/*.desktop > div:first-child {
-    position: static;
-}*/
+/**
+ * Positioning & Sizing
+ */
 
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+#desktop {
+    position: relative;
+    overflow: hidden;
+}
 .page {
-    background-image: url(../images/layout-grid.jpg);
-    background-repeat: repeat;
-    margin-bottom: 10px;
+    position: absolute;
+    display: block;
+    left: -100%;
+    top: -100%;
+}
+.page {
+    height: 100%;
+    width: 100%;
 }
 .metro {
     padding: 7em 6em;
@@ -39,7 +42,7 @@ body {
 }
 .metro > header h1 {
     /*margin: 0.7em -0.07em;*/
-    margin: -0.01em -0.07em;
+    margin: -0.01em -0.09em;
     font-size: 2.8em;
     font-weight: 500;
 }
@@ -161,30 +164,130 @@ body {
     margin-left: 0;
     margin-top: 0;
 }
-.slidePageLeft {
-    opacity: 1;
-    -webkit-transform: rotateY(0) translateZ(0);
-    -ms-transform: rotateY(0) translateZ(0);
-    transform: rotateY(0) translateZ(0);
-    -webkit-animation: slidePageLeft .8s ease-out 1 normal forwards;
-    animation: slidePageLeft .8s ease-out 1 normal forwards;
+/**
+ * Transitions
+ */
+
+.page.slide-from-left {
+    top: 0;
+    -webkit-animation: slide-from-left .8s ease-out 1 normal forwards;
+    animation: slide-from-left .8s ease-out 1 normal forwards;
 }
-@keyframes slidePageLeft {
+.page.slide-to-left {
+    top: 0;
+    -webkit-animation: slide-to-left .8s ease-out 1 normal forwards;
+    animation: slide-to-left .8s ease-out 1 normal forwards;
+}
+.page.slide-from-top {
+    left: 0;
+    -webkit-animation: slide-from-top .8s ease-out 1 normal forwards;
+    animation: slide-from-top .8s ease-out 1 normal forwards;
+}
+.page.slide-to-top {
+    left: 0;
+    -webkit-animation: slide-to-top .8s ease-out 1 normal forwards;
+    animation: slide-to-top .8s ease-out 1 normal forwards;
+}
+@-webkit-keyframes slide-from-left {
     0% {
-        left: 0;
-        -webkit-transform: rotateY(0deg) translateZ(0);
-        -ms-transform: rotateY(0deg) translateZ(0);
-        transform: rotateY(0deg) translateZ(0);
-        opacity: 1;
-    }
-    70% {
-        opacity: 1;
+        left: -100%;
     }
     100% {
-        opacity: 0;
-        left: -150%;
-        -webkit-transform: rotateY(0deg);
-        -ms-transform: rotateY(0deg);
-        transform: rotateY(0deg);
+        left: 0;
     }
+}
+@keyframes slide-from-left {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 0;
+    }
+}
+@-webkit-keyframes slide-to-left {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: -100%;
+    }
+}
+@keyframes slide-to-left {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: -100%;
+    }
+}
+@-webkit-keyframes slide-from-top {
+    0% {
+        top: -100%;
+    }
+    100% {
+        top: 0;
+    }
+}
+@keyframes slide-from-top {
+    0% {
+        top: -100%;
+    }
+    100% {
+        top: 0;
+    }
+}
+@-webkit-keyframes slide-to-top {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: -100%;
+    }
+}
+@keyframes slide-to-top {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: -100%;
+    }
+}
+/**
+ * Colors
+ */
+
+#desktop {
+    /*
+    #252525 / #f4b300
+    #252525 / #78ba00
+    #252525 / #2773ed
+    #252525 / #ae113e
+    #311600 / #632f00
+    #550004 / #b11d01
+    #4f023a / #c1004f
+    #2e0251 / #7200ad
+    #1d0065 / #4617b5
+    #00214f / #006ac0
+    #00485e / #008387
+    #004900 / #189900
+    #17992c / #00c140
+    #e66b1b / #ff991d
+    #b91d1e / #ff2e13
+    #b31a6a / #ff1d77
+    #681cb4 / #aa3fff
+    #1957ba / #20aeff
+    #599be5 / #57c5ff
+    #00a8a8 / #00d8cd
+    #82ba1b / #91d100
+    #d39d09 / #e1b700
+    #e165bb / #ff76bc
+    #686868 / #00a4a5
+    #686868 / #ff7d23
+    */
+    background-color: #686868;
+    color: #ff7d23;
+}
+.page {
+    background-image: url(../images/layout-grid.jpg);
+    background-repeat: repeat;
 }
