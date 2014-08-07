@@ -9,6 +9,10 @@ body {
     -webkit-font-smoothing: antialiased;
     position: absolute;
 }
+a {
+    text-decoration: none;
+    color: inherit;
+}
 /**
  * Positioning & Sizing
  */
@@ -79,6 +83,11 @@ body {
     min-width: calc(9em - 0.5em);
     max-width: calc(9em - 0.5em);
     width: calc(9em - 0.5em);
+}
+.metro .width14 {
+    min-width: calc(14em - 0.5em);
+    max-width: calc(14em - 0.5em);
+    width: calc(14em - 0.5em);
 }
 .metro .width16 {
     min-width: calc(16em - 0.5em);
@@ -158,11 +167,37 @@ body {
     display: table-cell;
     vertical-align: middle;
     text-align: center;
-    background: lightgrey;
     margin-right: 0.5em;
     margin-bottom: 0.5em;
     margin-left: 0;
     margin-top: 0;
+}
+.metro .list .icon {
+    display: inline-block;
+    height: 2em;
+    width: 2em;
+    float: left;
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
+}
+.metro .list .title {
+    font-weight: bold;
+    margin: -0.05em 0 0.85em -0.05em;
+    line-height: 0.7em;
+    font-size: 1.35em;
+}
+.metro .list .item a {
+    display: block;
+    margin: -0.5em -0.5em 0;
+    padding: 0.5em 0.5em 0;
+}
+.metro .list .item .title {
+    margin: -0.05em 0 0.05em -0.05em;
+}
+.metro .list .item .subtitle {
+    font-size: 0.70em;
+    line-height: 2.3em;
+    font-weight: bold;
 }
 /**
  * Transitions
@@ -284,10 +319,24 @@ body {
     #686868 / #00a4a5
     #686868 / #ff7d23
     */
-    background-color: #686868;
-    color: #ff7d23;
+    background-color: #252525;
+    color: #f4b300;
 }
 .page {
     background-image: url(../images/layout-grid.jpg);
     background-repeat: repeat;
+    color: #666666;
+}
+.metro .tile,
+.metro .icon {
+    background: #666666;
+}
+.metro .list .title {
+    color: lightblue;
+}
+.metro .list .item .title {
+    color: inherit;
+}
+.metro .list .item a:hover {
+    background: lightblue;
 }
